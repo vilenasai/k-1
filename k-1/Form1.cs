@@ -46,27 +46,30 @@ namespace k_1 {
                 rtbDiscriminant.Text = $"D = {d:F2}\nКорней нет";
        }
 
-            double sum = -b / a;
-            double product = c / a;
+        double sum = -b / a;
+        double product = c / a;
 
-            rtbVieta.Text = $"Сумма корней: {sum:F2}\nПроизведение: {product:F2}\n\n";
+        rtbVieta.Text = $"Сумма корней: {sum:F2}\nПроизведение: {product:F2}\n\n";
 
-            if (d >= 0) {
-                double x1 = (-b + Math.Sqrt(d)) / (2 * a);
-                double x2 = (-b - Math.Sqrt(d)) / (2 * a);
+        if (d >= 0) {
+          double x1 = (-b + Math.Sqrt(d)) / (2 * a);
+          double x2 = (-b - Math.Sqrt(d)) / (2 * a);
 
-                if (Math.Abs((x1 + x2) - sum) < 0.01 && Math.Abs((x1 * x2) - product) < 0.01) {
-                    rtbVieta.SelectionColor = Color.Green;
-                    rtbVieta.Text += "Корни верны!";
-                }
-                else {
-                    rtbVieta.SelectionColor = Color.Red;
-                    rtbVieta.Text += "Ошибка!";
-                }
-            }
-            else {
-                rtbVieta.Text += "Проверка невозможна.";
-            }
+        if (Math.Abs((x1 + x2) - sum) < 0.01 && Math.Abs((x1 * x2) - product) < 0.01) {
+          rtbVieta.SelectionColor = Color.Green;
+          rtbVieta.Text += "Корни верны!";
+        } else {
+            rtbVieta.SelectionColor = Color.Red;
+            rtbVieta.Text += "Ошибка!";
         }
+    } else {
+        rtbVieta.Text += "Проверка невозможна.";
     }
+  }
+
+    private void Form1_Load(object sender, EventArgs e)
+    {
+
+    }
+  }
 }
